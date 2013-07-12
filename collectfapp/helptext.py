@@ -4,7 +4,7 @@ purpose of keeping long help text in separate file is to keep Python code file c
 publication_form = {
     'pub': '',
     
-    'no_data': """Check this button if, after examining the paper, you find that the paper does not
+    'no_data': """Check this button if, after examining the paper, you determine that the paper does not
     have data on binding sites. Checking this button will mark the paper as having no
     binding site data and set it to the 'curation complete' status. Also, the
     curation process will be ended as the paper has no data to be curated.""",
@@ -60,40 +60,41 @@ techniques_form = {
 }
 
 site_report_form = {
-    'is_motif_associated': """If reported binding sites are 'true' binding sites, check this option. If a
-    reported site is much longer than actual binding site sequence and contains the true binding
-    site somewhere in its sequence, it is called a non-motif-associated site. In
-    that case, this option must be un-checked.""",
+    'is_motif_associated': """Check this option if the sites you are reporting in this curation are identified by the
+    authors of the paper as corresponding to a known, specific sequence motif. If the authors simply state that the identified
+    regions of DNA are bound by a TF, without identifying the specific binding motif, uncheck this option.""",
 
-    'is_coordinate': """If the paper reports coordinates instead of actual sequences, check this
-    option. Enter coordinates for all sequences below (one for each line). Each line should have
-    start and end positions, separated by space or tab characters. If the reported sites have quantitative data,
-    they should be given as third item for each site instance (i.e. {start end quantitative_value}).""",
+    'is_coordinate': """Check this box for coordinate-based entry of sites (with/without quantitative data). Enter 
+    coordinates {start end} separated by tab/sapce. Coordinate order determines strand. One site per line.
+    For quantitative data, add a third item for each site instance (i.e. {start end quantitative_value}).""",
 
     'is_chip_data': """If the paper reports sequences/coordinates identified using ChIP methods, check this
     box. A few extra fields will be populated.""",
 
-    'has_quantitative_data': """If the paper has some quantitative values associated with each site, please check
-    this option. For example, if the used technique is ChIP, these values are peak
-    intensities. Also, for some other tecnhiques, for each site, a quantitative value
-    may be reported. They should be given as the last item for each site instance
-    (i.e. If sequences are reported, the format would be {sequence value}, and if
-    the coordinates are reported, the format would be {start_pos end_pos value}.""",
+    'has_quantitative_data': """Check this option if you are reporting quantitative data associated to sites.
+    Quantitative data can be entered using a tab/space field after sites, using the GUI after site identification, or
+    extracting it from peak data (ChIP methods only).""",
 
-    'peak_calling_method': '',
+    'peak_calling_method': """Describe the type, range and experimental interpretation of the quantitative data.
+    For instance, if differential EMSA, detail the total range and the basics of the experiment.
+    For ChIP methods, simple state 'Peak intensity' and identify the peak calling method.""",
 
-    'assay_conditions': '',
+    'assay_conditions': """Describe the conditions of the ChIP assay. That is, what experimental conditions were used
+    for ChIP. How was the system induced? Were the cells in exponential phase?""",
 
-    'method_notes': '',
+    'method_notes': """Provide (copy/paste if desired) details on the ChIP setup. How was ChIP implemented (e.g.
+    what tag was used?), how was data normalized, how were peaks called, etc.""",
 
-    'sites': """Type either site sequences or coordinates. Site instances must be given in separate lines.
+    'sites': """Enter sites here. Sites can be entered as DNA sequence or coordinates {start end}. One site per line. 
+    A single quantitative data field can be appended after site using tab/space as separator.
     If only sequence input is given, FASTA format is supported.""",
 
-    'chip_data_extra_field': """If the used technique is ChIP and reported sites are motif-associated,
-    paste ChIP peaks to this field with intensity values (the format is {peak_start_pos peak_end_pos intensity_value}).
+    'chip_data_extra_field': """If reporting ChIP motif-associated site with quantiative data, peak intensities can
+    be automatically derived from ChIP peak data.
+    Paste reported ChIP peaks with peak intensity values here {peak_start_pos peak_end_pos intensity_value}.
     The identified motif-associated sites (given in 'Sites' field) will be searched in list of peaks (given in this field),
-    and peak intensities will be associated with motif-associated sites. The mapped peak intensity values will be displayed
-    before curation submission for review.""",
+    and peak intensities will be automatically associated with motif-associated sites. The mapped peak intensity values 
+    will be displayed before curation submission for review.""",
 
 }
 
