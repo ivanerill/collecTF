@@ -208,7 +208,7 @@ class SiteReportForm(forms.Form):
     
     is_coordinate = forms.BooleanField(initial=False,
                                        required=False,
-                                       label="Binding sequence coordinates are reported in the paper.",
+                                       label="Using genome coordinates to specify sites.",
                                        help_text=help_dict['is_coordinate'])
 
     # ChIP Fields
